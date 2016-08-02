@@ -20,7 +20,7 @@ articles.each do |article|
   ScraperWiki.save_sqlite [:link], {
     title: article.at('a').text,
     link: root + '/' + article.at('a')[:href],
-    date: Date.parse(article.at('small').text.split('|')[1].strip)
+    date: Date.parse(article.at('small').text.split('|')[1])
   }
 end
 #
