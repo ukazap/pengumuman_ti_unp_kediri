@@ -17,7 +17,7 @@ articles = page.search '.maincontent li'
 # # Write out to the sqlite database using scraperwiki library
 # ScraperWiki.save_sqlite(["name"], {"name" => "susan", "occupation" => "software developer"})
 articles.each do |article|
-  ScraperWiki.save_sqlite ["link"], {
+  ScraperWiki.save_sqlite [:link], {
     title: article.at('a').text,
     link: root + '/' + article.at('a')[:href],
     date: Date.parse(article.at('small').text.split('|')[1].strip)
